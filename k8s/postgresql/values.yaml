@@ -3,7 +3,7 @@ postgresql:
     persistence:
       storageClass: "w4hosting-ssd-capacity-optimized-1-copy"
   image:
-    tag: "12.1"
+    tag: "15.1"
   auth:
     username: "test"
     password: "test"
