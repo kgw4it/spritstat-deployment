@@ -1,7 +1,8 @@
+storageClass: "w4hosting-ssd-capacity-optimized-1-copy"
 postgresql:
-  primary:
-    persistence:
-      storageClass: "w4hosting-ssd-capacity-optimized-1-copy"
+#  primary:
+#    persistence:
+#      storageClass: "w4hosting-ssd-capacity-optimized-1-copy"
   image:
     tag: "15"
   auth:
