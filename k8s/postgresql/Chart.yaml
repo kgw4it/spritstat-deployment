@@ -8,4 +8,4 @@ appVersion: "1.0"
 dependencies:
 - name: postgresql
   version: 12.1.2
-  repository: https://artifacthub.io/packages/helm/bitnami/postgresql
+  repository: https://artifacthub.io/packages/helm/bitnami
