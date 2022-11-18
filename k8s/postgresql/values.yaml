@@ -1,9 +1,6 @@
 postgresql:
   global:
     storageClass: "w4hosting-ssd-capacity-optimized-1-copy"
-#  primary:
-#    persistence:
-#      storageClass: "w4hosting-ssd-capacity-optimized-1-copy"
   image:
     repository: "postgres"
     tag: "15"
