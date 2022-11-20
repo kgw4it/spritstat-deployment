@@ -2,8 +2,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: guestbook-ui
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-test"
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - sprit2.thga.at
+    secretName: app-tls
   rules:
   - host: sprit2.thga.at
     http:
