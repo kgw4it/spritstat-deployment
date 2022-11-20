@@ -32,10 +32,11 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 ```
 
 # Setup cluster services
-# Nginx Ingress Controller
+# Nginx Ingress Controller with Cert Manager
 https://kubernetes.github.io/ingress-nginx/deploy/
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.5.1/deploy/static/provider/cloud/deploy.yaml
+kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.9.2/cert-manager.yaml
 ```
 
