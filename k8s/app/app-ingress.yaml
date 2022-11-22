@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: guestbook-ui
   annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-test"
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
 spec:
   ingressClassName: nginx
   tls:
