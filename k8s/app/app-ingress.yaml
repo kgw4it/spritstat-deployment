@@ -3,6 +3,7 @@ kind: Ingress
 metadata:
   name: guestbook-ui
   annotations:
+    nignx.ingress.kubernetes.io/force-ssl-redirect: "true"
     cert-manager.io/cluster-issuer: "letsencrypt-production"
 spec:
   ingressClassName: nginx
