@@ -4,6 +4,7 @@ metadata:
   name: guestbook-ui
   annotations:
     cert-manager.io/cluster-issuer: "letsencrypt-test"
+    kubernetes.io/ingress.class: "nginx"
 spec:
   ingressClassName: nginx
   tls:
