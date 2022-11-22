@@ -3,9 +3,10 @@ kind: Service
 metadata:
   name: guestbook-ui
 spec:
+  externalTrafficPolicy: Cluster
+  type: LoadBalancer
   ports:
   - port: 80
     targetPort: 80
   selector:
     app: guestbook-ui
-  type: LoadBalancer
