@@ -32,7 +32,35 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 ```
 
 # Setup cluster services
-# Nginx Ingress Controller with Cert Manager
+## Sealed Secrets
+https://github.com/bitnami-labs/sealed-secrets#public-key--certificate
+
+### On the Jumpbox
+```bash
+# Install sealed-secrets to the cluster
+kubectl apply -f https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.19.2/controller.yaml
+
+# Install kubeseal
+wget https://github.com/bitnami-labs/sealed-secrets/releases/download/v0.19.2/kubeseal-0.19.2-linux-amd64.tar.gz
+tar -xvzf kubeseal-0.19.2-linux-amd64.tar.gz kubeseal
+sudo install -m 755 kubeseal /usr/local/bin/kubeseal
+
+# Export public cert for use with kubeseal on the workstation
+kubeseal --fetch-cert >mycert.pem
+```
+
+### On the workstation
+```bash
+# Install kubeseal
+brew install kubeseal
+
+# Download cert from jumpbox
+
+# Create sealed secret from a secret definition
+kubeseal --cert mycert.pem <mysecret.json >mysealedsecret.json
+```
+
+## Nginx Ingress Controller with Cert Manager
 https://kubernetes.github.io/ingress-nginx/deploy/
 
 ```bash
