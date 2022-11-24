@@ -3,8 +3,8 @@ kind: ConfigMap
 metadata:
   name: spritstat
 data:
-  DJANGO_POSTGRES_USER: "postgres"
-  DJANGO_POSTGRES_DATABASE: "postgres"
+  DJANGO_POSTGRES_USER: "spritstat"
+  DJANGO_POSTGRES_DATABASE: "spritstat"
   DJANGO_POSTGRES_HOST: "postgres-postgresql.default.svc.cluster.local"
   DJANGO_POSTGRES_PORT: "5432"
   
