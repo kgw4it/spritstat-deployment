@@ -6,7 +6,6 @@ postgresql:
         username: "spritstat"
         database: "spritstat"
   image:
-    repository: "postgres"
     tag: "15"
   auth:
     existingSecret: "postgres-secrets"
