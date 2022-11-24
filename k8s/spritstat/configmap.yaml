@@ -6,11 +6,11 @@ data:
   DJANGO_POSTGRES_USER: "postgres"
   DJANGO_POSTGRES_DATABASE: "postgres"
   DJANGO_POSTGRES_HOST: "postgres-postgresql.default.svc.cluster.local"
-  DJANGO_POSTGRES_PORT: 5432
+  DJANGO_POSTGRES_PORT: "5432"
   
   # DJANGO_EMAIL_BACKEND: "django.core.mail.backends.smtp.EmailBackend"
   # DJANGO_EMAIL_HOST: "email-smtp.eu-central-1.amazonaws.com"
-  # DJANGO_EMAIL_PORT: 587
+  # DJANGO_EMAIL_PORT: "587"
   # DJANGO_EMAIL_USERNAME: "none"
   DJANGO_DEFAULT_FROM_EMAIL: "no-reply@sprit.thga.at"
   DJANGO_DEFAULT_TO_EMAIL: "me@farside.ai"
