@@ -1,10 +1,12 @@
 postgresql:
   global:
     storageClass: "w4hosting-ssd-capacity-optimized-1-copy"
+    postgres:
+      auth:
+        username: "spritstat"
+        database: "spritstat"
   image:
     repository: "postgres"
     tag: "15"
   auth:
-    database: "spritstat"
-    username: "spritstat"
     existingSecret: "postgres-secrets"
