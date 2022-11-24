@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: guestbook-ui
+  name: spritstat
 spec:
   replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: guestbook-ui
+      app: spritstat
   template:
     metadata:
       labels:
-        app: guestbook-ui
+        app: spritstat
     spec:
       containers:
-      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
-        name: guestbook-ui
+      - image: ghcr.io/tgamauf/spritstat:latest
+        name: spritstat
         ports:
         - containerPort: 80
