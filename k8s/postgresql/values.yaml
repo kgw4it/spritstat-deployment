@@ -5,6 +5,6 @@ postgresql:
     repository: "postgres"
     tag: "15"
   auth:
-    username: "postgres"
-    password: "postgres"
     database: "postgres"
+    username: "postgres"
+    existingSecret: "postgres-secrets"
