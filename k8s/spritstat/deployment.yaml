@@ -16,5 +16,10 @@ spec:
       containers:
       - image: ghcr.io/tgamauf/spritstat:latest
         name: spritstat
+        envFrom:
+          - configMapRef:
+              name: spritstat
+          - secretRef:
+              name: spritstat
         ports:
         - containerPort: 80
