@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: spritstat-static
+spec:
+  storageClassName: "w4hosting-ssd-capacity-optimized-1-copy"
+  accessModes:
+    - ReadWriteMany
