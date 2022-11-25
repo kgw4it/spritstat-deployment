@@ -14,12 +14,19 @@ spec:
         app: spritstat
     spec:
       containers:
-      - image: ghcr.io/tgamauf/spritstat:latest
-        name: spritstat
-        envFrom:
-          - configMapRef:
-              name: spritstat
-          - secretRef:
-              name: spritstat
-        ports:
-        - containerPort: 8000
+        - image: ghcr.io/tgamauf/spritstat:latest
+          name: spritstat
+          envFrom:
+            - configMapRef:
+                name: spritstat
+            - secretRef:
+                name: spritstat
+          volumeMounts:
+            - mountPath: /home/app/web/staticfiles
+              name: spritstat-static
+          ports:
+            - containerPort: 8000
+      volumes:
+        - name: spritstat-static
+          persistentVolumeClaim:
+            claimName: spritstat-static

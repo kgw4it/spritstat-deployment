@@ -1,0 +1,5 @@
+nginx:
+  ingress:
+    enabled: true
+    path: "/static/"
+  staticSitePVC: "spritstat-static"
