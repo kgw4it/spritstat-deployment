@@ -17,3 +17,10 @@ data:
   DJANGO_SERVER_EMAIL: "root@sprit.thga.at"
 
   DJANGO_ALLOWED_HOSTS: "sprit2.thga.at"
+  DJANGO_STATIC_ROOT: "/home/app/web/staticfiles"
+  DJANGO_DEBUG: "false"
+  DJANGO_DOMAIN: "sprit2.thga.at"
+
+  DJANGO_SUPERUSER_USERNAME: "tom"
+  DJANGO_SUPERUSER_EMAIL: "tl@gkcs.eu"
+
