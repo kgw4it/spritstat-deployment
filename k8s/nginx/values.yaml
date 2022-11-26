@@ -3,9 +3,9 @@ nginx:
     enabled: true
     ingressClassName: "nginx"
     hostname: "sprit2.thga.at"
-    path: "/static/"
+    path: "/static/(.*)"
     annotations:
-      nginx.ingress.kubernetes.io/rewrite-target: /
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
   staticSitePVC: "spritstat-static"
   podSecurityContext:
     enabled: true
