@@ -13,6 +13,8 @@ spec:
       labels:
         app: spritstat
     spec:
+      securityContext:
+        fsGroup: 1000
       containers:
         - image: ghcr.io/tgamauf/spritstat:latest
           name: spritstat
