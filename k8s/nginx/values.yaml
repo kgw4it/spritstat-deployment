@@ -7,7 +7,6 @@ nginx:
   staticSitePVC: "spritstat-static"
   serverBlock: |-
     server {
-      listen 0.0.0.0;
       location /static/ {
         alias /app/;
       }
