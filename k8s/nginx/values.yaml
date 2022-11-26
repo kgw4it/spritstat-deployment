@@ -7,3 +7,5 @@ nginx:
     annotations:
       nginx.ingress.kubernetes.io/rewrite-target: /
   staticSitePVC: "spritstat-static"
+  podSecurityContext:
+    fsGroup: 1000
