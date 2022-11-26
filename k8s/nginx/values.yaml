@@ -9,4 +9,3 @@ nginx:
   staticSitePVC: "spritstat-static"
   podSecurityContext:
     enabled: true
-    fsGroup: 1001
