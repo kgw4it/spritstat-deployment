@@ -1,6 +1,0 @@
-elasticsearch:
-  global:
-    storageClass: "w4hosting-ssd-capacity-optimized-1-copy"
-    kibanaEnabled: true
-  auth:
-    existingSecret: "elastic-secrets"
