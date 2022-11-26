@@ -4,4 +4,6 @@ nginx:
     ingressClassName: "nginx"
     hostname: "sprit2.thga.at"
     path: "/static/"
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: "/"
   staticSitePVC: "spritstat-static"
