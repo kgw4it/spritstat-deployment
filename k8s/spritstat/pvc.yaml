@@ -5,4 +5,7 @@ metadata:
 spec:
   storageClassName: "w4hosting-ssd-capacity-optimized-1-copy"
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 500M
