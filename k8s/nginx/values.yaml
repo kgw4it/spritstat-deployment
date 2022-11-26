@@ -5,3 +5,10 @@ nginx:
     hostname: "sprit2.thga.at"
     path: "/static/"
   staticSitePVC: "spritstat-static"
+  serverBlock: |-
+    server {
+      listen 0.0.0.0:80;
+      location /static/ {
+        alias /app/;
+      }
+    }
