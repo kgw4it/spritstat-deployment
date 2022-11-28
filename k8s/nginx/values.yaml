@@ -9,8 +9,3 @@ nginx:
   staticSitePVC: "spritstat-static"
   podSecurityContext:
     enabled: true
-  nodeAffinityPreset:
-    type: "hard"
-    key: "app"
-    values:
-      - "spritstat"
