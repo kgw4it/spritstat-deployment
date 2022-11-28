@@ -9,8 +9,13 @@ nginx:
   staticSitePVC: "spritstat-static"
   podSecurityContext:
     enabled: true
-  nodeAffinityPreset:
-    type: hard
-    key: "app"
-    values:
-      - "spritstat"
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
+            matchExpressions:
+              - key: app
+                operator: In
+                values:
+                  - spritstat
+          topologyKey: "kubernetes.io/hostname"
