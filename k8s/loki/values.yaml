@@ -4,5 +4,11 @@ loki:
   singleBinary:
     persistence:
       storageClass: "w4hosting-ssd-capacity-optimized-1-copy"
+  read:
+    persistence:
+      storageClass: "w4hosting-ssd-capacity-optimized-1-copy"
+  write:
+    persistence:
+      storageClass: "w4hosting-ssd-capacity-optimized-1-copy"
   storage:
     type: "filesystem"
