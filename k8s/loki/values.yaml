@@ -1,20 +1,5 @@
 loki:
   commonConfig:
     replication_factor: 1
-  gateway:
-    autoscaling:
-      maxReplicas: 1
-  singleBinary:
-    persistence:
-      storageClass: "w4hosting-ssd-capacity-optimized-1-copy"
-      size: "1Gi"
-  read:
-    persistence:
-      storageClass: "w4hosting-ssd-capacity-optimized-1-copy"
-      size: "1Gi"
-  write:
-    persistence:
-      storageClass: "w4hosting-ssd-capacity-optimized-1-copy"
-      size: "1Gi"
   storage:
     type: "filesystem"
