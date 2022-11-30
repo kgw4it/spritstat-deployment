@@ -1,11 +1,12 @@
 loki:
-  auth_enabled: false
-  commonConfig:
-    replication_factor: 1
-  storage:
-    type: "filesystem"
-singleBinary:
-  persistence:
-    enabled: true
-    size: 10Gi
-    storageClass: "w4hosting-ssd-capacity-optimized-1-copy"
+  loki:
+    auth_enabled: false
+    commonConfig:
+      replication_factor: 1
+    storage:
+      type: "filesystem"
+  singleBinary:
+    persistence:
+      enabled: true
+      size: 10Gi
+      storageClass: "w4hosting-ssd-capacity-optimized-1-copy"
