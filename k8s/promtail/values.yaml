@@ -1,5 +1,5 @@
 promtail:
   config:
     clients:
-      - url: http://loki.default/loki/api/v1/push
+      - url: http://loki.default:3100/loki/api/v1/push
         tenant_id: 1
