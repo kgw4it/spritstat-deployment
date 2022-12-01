@@ -7,4 +7,4 @@ grafana:
     type: loki
     url: http://loki.default:3100
     version: 1
-  adminPassword: HpXFiOVp
+  adminPassword: admin
