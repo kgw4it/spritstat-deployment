@@ -7,11 +7,12 @@ kube-prometheus-stack:
       name: Loki
       type: loki
       url: http://loki.default:3100
-    dashboards:
-      default:
-        loki:
-          gnetId: 13639
-          revision: 2
-          datasource:
-            - name: DS_LOKI
-              value: Loki
+    sidecar:
+      dashboards:
+        default:
+          loki:
+            gnetId: 13639
+            revision: 2
+            datasource:
+              - name: DS_LOKI
+                value: Loki
