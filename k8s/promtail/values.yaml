@@ -4,13 +4,13 @@ promtail:
       - url: http://loki.default:3100/loki/api/v1/push
         tenant_id: 1
     snippets:
-      extraScrapeConfigs:
-        - job_name: "spritstat"
+      extraScrapeConfigs: |
+        - job_name: spritstat
           pipeline_stages:
             - match:
                 selector: '{app="spritstat"}'
                 stages:
                   - regex:
-                      expression: ".*(?P<level>debug|DEBUG|info|INFO|error|ERROR|critical|CRITICAL).*"
+                      expression: ".*"
                   - labels:
                       level:
