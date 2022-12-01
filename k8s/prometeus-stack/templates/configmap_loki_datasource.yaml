@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: logs-dashboard
+  name: loki-datasource
   labels:
     grafana_dashboard: "1"
 data:
