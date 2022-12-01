@@ -1,11 +1,17 @@
 kube-prometheus-stack:
   grafana:
+    adminPassword: admin
     additionalDataSources:
     - access: proxy
       isDefault: false
       name: Loki
-      orgId: 1
       type: loki
       url: http://loki.default:3100
-      version: 1
-    adminPassword: admin
+    dashboards:
+      default:
+        loki:
+          gnetId: 13639
+          revision: 2
+          datasource:
+            - name: DS_LOKI
+              value: Loki
