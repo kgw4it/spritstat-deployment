@@ -5,13 +5,13 @@ promtail:
         tenant_id: 1
     snippets:
       extraScrapeConfigs: |
-        # Add additional scrape for Python logs
-        - job_name: spritstat
+        # Add additional scrape for Spritstat logs
+        - job_name: "spritstat"
           pipeline_stages:
             - match:
                 selector: '{app="spritstat"}'
                 stages:
                   - regex:
-                      expression: "(?P<level>debug|DEBUG|info|INFO|error|ERROR|critical|CRITICAL)"
+                      expression: ".*(?P<level>debug|DEBUG|info|INFO|error|ERROR|critical|CRITICAL).*"
                   - labels:
-                      level:      
+                      level:
