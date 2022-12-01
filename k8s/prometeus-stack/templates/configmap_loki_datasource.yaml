@@ -5,11 +5,13 @@ metadata:
   labels:
     grafana_datasource: "1"
 data:
-  loki-datasource.json: |-
-    {
-      "name": "Loki",
-      "type": "loki",
-      "access": "proxy",
-      "url": "http://loki.default:3100"
-      "editable": "false
-    }
+  datasource.yaml: |-
+    apiVersion: 1
+    datasources:
+    - access: proxy
+      basicAuth: false
+      editable: false
+      isDefault: false
+      name: Loki
+      type: loki
+      url: http://loki.default:3100
