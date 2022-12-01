@@ -1,18 +1,35 @@
 grafana:
-  adminPassword: "admin"
-  sidecar:
-    dashboards:
-      default:
-        logs:
-          gnetId: 13639
-          datasource:
-            - name: DS_LOKI
-              value: Loki
+#  adminPassword: "admin"
+#  sidecar:
+#    dashboards:
+#      default:
+#        logs:
+#          gnetId: 13639
+#          revision: 2
+#          datasource:
+#            - name: DS_LOKI
+#              value: Loki
+#  additionalDataSources:
+#    - name: Loki
+#      type: loki
+#      access: proxy
+#      basicAuth: false
+#      editable: false
+#      isDefault: false
+#      url: http://loki.default:3100
   additionalDataSources:
     - name: Loki
       type: loki
-      access: proxy
-      basicAuth: false
-      editable: false
       isDefault: false
+      editable: true
+      access: proxy
       url: http://loki.default:3100
+      uid: loki
+      version: 1
+      jsonData:
+        manageAlerts: true
+        derivedFields:
+          - name: "traceID"
+            matcherRegex: "(?:traceID|trace_id|tid|TraceID)=(\\w+)"
+            url: "$${__value.raw}"
+            datasourceUid: tempo
