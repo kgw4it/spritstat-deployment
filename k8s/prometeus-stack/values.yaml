@@ -1,5 +1,7 @@
 kube-prometheus-stack:
   grafana:
+    admin:
+      existingSecret: "grafana-secrets"
     smtp:
       existingSecret: "grafana-secrets"
     additionalDataSources:
