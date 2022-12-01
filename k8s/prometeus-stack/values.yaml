@@ -1,3 +1,9 @@
-prometeus-stack:
-  grafana:
-    adminPassword: "admin"
+grafana:
+  adminPassword: "admin"
+  dashboards:
+    default:
+      logs:
+        gnetId: 13639
+        datasource:
+          - name: DS_LOKI
+            value: Loki
