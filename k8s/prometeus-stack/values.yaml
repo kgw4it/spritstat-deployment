@@ -7,3 +7,14 @@ grafana:
         datasource:
           - name: DS_LOKI
             value: Loki
+  datasources:
+    datasource.yaml:
+      apiVersion: 1
+      datasources:
+      - access: proxy
+        basicAuth: false
+        editable: false
+        isDefault: false
+        name: Loki
+        type: loki
+        url: http://loki.default:3100
