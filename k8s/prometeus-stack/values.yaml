@@ -1,4 +1,4 @@
-prometeus-stack:
+kube-prometheus-stack:
   grafana:
     additionalDataSources:
     - access: proxy
