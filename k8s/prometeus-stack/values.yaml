@@ -1,6 +1,7 @@
 kube-prometheus-stack:
   grafana:
-    adminPassword: admin
+    smtp:
+      existingSecret: "grafana-secrets"
     additionalDataSources:
     - access: proxy
       isDefault: false
