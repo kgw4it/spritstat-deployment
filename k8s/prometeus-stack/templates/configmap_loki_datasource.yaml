@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: loki-datasource
   labels:
-    grafana_dashboard: "1"
+    grafana_datasource: "1"
 data:
   loki-datasource.json: |-
     {
