@@ -1,10 +1,11 @@
-grafana:
-  additionalDataSources:
-  - access: proxy
-    isDefault: false
-    name: Loki
-    orgId: 1
-    type: loki
-    url: http://loki.default:3100
-    version: 1
-  adminPassword: admin
+prometeus-stack:
+  grafana:
+    additionalDataSources:
+    - access: proxy
+      isDefault: false
+      name: Loki
+      orgId: 1
+      type: loki
+      url: http://loki.default:3100
+      version: 1
+    adminPassword: admin
