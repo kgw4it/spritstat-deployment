@@ -7,10 +7,10 @@ promtail:
       extraScrapeConfigs: |
         - job_name: spritstat
           pipeline_stages:
-            - match:
+          - match:
               selector: '{app="spritstat"}'
               stages:
-                - regex:
-                    expression: ".*(?P<level>debug|DEBUG|info|INFO|error|ERROR|critical|CRITICAL)"
-                - labels:
-                    level:
+              - regex:
+                  expression: ".*(?P<level>debug|DEBUG|info|INFO|error|ERROR|critical|CRITICAL)"
+              - labels:
+                  level:
