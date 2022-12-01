@@ -5,12 +5,12 @@ promtail:
         tenant_id: 1
     snippets:
       extraScrapeConfigs: |
-        - job_name: spritstat
+        - job_name: xxx
           pipeline_stages:
             - match:
                 selector: '{app="spritstat"}'
                 stages:
                   - regex:
-                      expression: ".*"
+                      expression: ".*(?P<level>debug|DEBUG|info|INFO|error|ERROR|critical|CRITICAL)"
                   - labels:
                       level:
