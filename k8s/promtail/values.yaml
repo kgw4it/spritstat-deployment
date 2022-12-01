@@ -4,8 +4,7 @@ promtail:
       - url: http://loki.default:3100/loki/api/v1/push
         tenant_id: 1
     snippets:
-      extraScrapeConfigs: |
-        # Add additional scrape for Spritstat logs
+      extraScrapeConfigs:
         - job_name: "spritstat"
           pipeline_stages:
             - match:
