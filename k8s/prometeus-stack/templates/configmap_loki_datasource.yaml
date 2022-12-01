@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: logs-dashboard
+  labels:
+    grafana_dashboard: "1"
+data:
+  loki-datasource.json: |-
+    {
+      "name": "Loki",
+      "type": "loki",
+      "access": "proxy",
+      "url": "http://loki.default:3100"
+      "editable": "false
+    }
