@@ -1,6 +1,6 @@
 apiVersion: v2
 name: loki
-description: Graphana Loki for Kubernetes
+description: Graphana Loki is a log aggregator that can be used to aggregate multiple log streams.
 type: application
 version: 0.1.0
 appVersion: "1.0"

@@ -1,6 +1,6 @@
 apiVersion: v2
-name: loki
-description: Graphana Loki for Kubernetes
+name: promtail
+description: Promtail is a tool for managing Prometheus metrics and their data.
 type: application
 version: 0.1.0
 appVersion: "1.0"
