@@ -43,21 +43,7 @@ kube-prometheus-stack:
                 message: 'total spritstat error count ({{ $value }}).'
   alertmanager:
     enabled: true
-    route:
-      group_by: [ 'alertname' ]
-      receiver: 'email'
-      routes:
-        - match:
-            alertname: 'spritstat_errors'
-          receiver: 'email'
-    receivers:
-      - name: 'email'
-        email_configs:
-          - to: 'me@farside.ai'
-            from: 'root@sprit.thga.at'
-            smarthost: 'email-smtp.eu-central-1.amazonaws.com'
-            auth_username: 'AKIAWV3JLC5I7SB3LTUD'
-            auth_identity: 'Spritstat Alertmanager'
-            auth_password: 'BKgspnpp6lMj4Ei1670lmbS/w+DkKAgtxBQW8f5IH/Vz'
-            require_tls: true
-            send_resolved: true
+    alertmanagerSpec:
+      useExistingSecret: true
+      secrets:
+        - alertmanager-prometeus-stack-alertmanager
