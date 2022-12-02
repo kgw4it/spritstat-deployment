@@ -30,6 +30,7 @@ kube-prometheus-stack:
           datasource:
             - name: DS_LOKI
               value: Loki
+  fullnameOverride: prometeus-stack
   additionalPrometheusRules:
     - name: loki-alert
       groups:
@@ -40,22 +41,9 @@ kube-prometheus-stack:
               for: 30m
               annotations:
                 message: 'total spritstat error count ({{ $value }}).'
-#  alertmanager:
-#    config:
-#      global:
-#        resolve_timeout: 5m
-#      route:
-#        group_by: [ 'alertname' ]
-#        group_wait: 3s
-#        group_interval: 5s
-#        repeat_interval: 1m
-#        receiver: webhook-alert
-#        routes:
-#          - match:
-#              alertname: spritstat_errors
-#            receiver: webhook-alert
-#      receivers:
-#        - name: 'webhook-alert'
-#          webhook_configs:
-#            - url: 'http://dingtalk-hook:5000'
-#              send_resolved: true
+  alertmanager:
+    enabled: true
+    alertmanagerSpec:
+      useExistingSecret: true
+      secrets:
+        - alertmanager-prometeus-stack-alertmanager
