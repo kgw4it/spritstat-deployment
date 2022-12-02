@@ -5,6 +5,8 @@ promtail:
         tenant_id: 1
     serviceMonitor:
       enabled: true
+      additionalLabels:
+        release: ps
     pipelineStages:
       - docker: {}
       - match:
