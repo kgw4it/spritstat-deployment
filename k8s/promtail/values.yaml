@@ -3,10 +3,6 @@ promtail:
     clients:
       - url: http://loki.default:3100/loki/api/v1/push
         tenant_id: 1
-    serviceMonitor:
-      enabled: true
-      additionalLabels:
-        release: ps
     pipelineStages:
       - docker: {}
       - match:
@@ -21,3 +17,7 @@ promtail:
                   source: error
                   config:
                     action: inc
+  serviceMonitor:
+    enabled: true
+    additionalLabels:
+      release: ps
