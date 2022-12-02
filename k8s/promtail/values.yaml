@@ -3,14 +3,19 @@ promtail:
     clients:
       - url: http://loki.default:3100/loki/api/v1/push
         tenant_id: 1
-    snippets:
-      extraScrapeConfigs: |
-        - job_name: spritstat
-          pipeline_stages:
-          - match:
-              selector: '{app="spritstat"}'
-              stages:
-              - regex:
-                  expression: ".*(?P<level>debug|DEBUG|info|INFO|error|ERROR|critical|CRITICAL)"
-              - labels:
-                  level:
+    serviceMonitor:
+      enabled: true
+    pipelineStages:
+      - docker: {}
+      - match:
+          selector: '{app="spritstat"}'
+          stages:
+            - regex:
+                expression: ".*(?P<error>error|ERROR|critical|CRITICAL)"
+            - metrics:
+                spritstat_errors:
+                  type: Counter
+                  description: Spritstat application errors
+                  source: error
+                  config:
+                    action: inc
