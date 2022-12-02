@@ -30,7 +30,7 @@ kube-prometheus-stack:
           datasource:
             - name: DS_LOKI
               value: Loki
-  fullnameOverride: prometeus-stack
+  nameOverride: prometeus-stack
   additionalPrometheusRules:
     - name: loki-alert
       groups:
