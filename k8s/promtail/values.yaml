@@ -19,5 +19,5 @@ promtail:
                     action: inc
   serviceMonitor:
     enabled: true
-    additionalLabels:
+    labels:
       release: ps
