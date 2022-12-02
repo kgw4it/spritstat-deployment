@@ -30,16 +30,16 @@ kube-prometheus-stack:
           datasource:
             - name: DS_LOKI
               value: Loki
-#  additionalPrometheusRules:
-#    - name: loki-alert
-#      groups:
-#        - name: spritstat
-#          rules:
-#            - alert: spritstat_errors
-#              expr: sum(increase(promtail_custom_spritstat_errors[15m])) > 2
-#              for: 30m
-#              annotations:
-#                message: 'total spritstat error count ({{ $value }}).'
+  additionalPrometheusRules:
+    - name: loki-alert
+      groups:
+        - name: spritstat
+          rules:
+            - alert: spritstat_errors
+              expr: sum(increase(promtail_custom_spritstat_errors[15m])) > 2
+              for: 30m
+              annotations:
+                message: 'total spritstat error count ({{ $value }}).'
 #  alertmanager:
 #    config:
 #      global:
