@@ -1,0 +1,11 @@
+apiVersion: v2
+name: blackbox-exporter
+description: Blackbox Exporter for Kubernetes
+type: application
+version: 0.1.0
+appVersion: "1.0"
+
+dependencies:
+- name: blackbox-exporter
+  version: 7.1.3
+  repository: https://prometheus-community.github.io/helm-charts
