@@ -5,8 +5,9 @@ argo-cd:
       - "--insecure"
     config:
       repositories: |
-        name: argo-cd
-        url: https://argoproj.github.io/argo-helm
+        - type: helm
+          name: argo-cd
+          url: https://argoproj.github.io/argo-helm
   dex:
     enabled: false
   ingress:
