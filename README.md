@@ -54,8 +54,10 @@ on the workstation and port `443` must be forwarded from the service to the jump
 while true; do kubectl port-forward svc/argocd-server -n argocd 8080:443; done
 ```
 
-After that the Argo CD web interfac can be accessed via `localhost`: `http://localhost:8080`.
+After that the Argo CD web interface can be accessed via `localhost`: `http://localhost:8080`.
 
+First add a the https://github.com/tgamauf/spritstat-deployment GIT repo to Argo CD and 
+then reate a new Argo CD project with the following yaml:
 ```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: Application
@@ -63,7 +65,6 @@ metadata:
   name: infra-root
 spec:
   destination:
-    name: ''
     namespace: argocd
     server: 'https://kubernetes.default.svc'
   source:
@@ -101,7 +102,7 @@ After that install `kubeseal` on the workstation:
 brew install kubeseal
 ```
 
-# Sealed secrets
+# Update the sealed secrets
 
 All secrets used in the project are stored as sealed secrets in the repository. As the
 secrets can only be unsealed on a cluster that possesses the correct, automatically
@@ -237,6 +238,29 @@ DJANGO_POSTGRES_PASSWORD=<Postgres spritstat user password>
 DJANGO_EMAIL_PASSWORD=<SMTP server user password>
 DJANGO_SECRET=<Django server secret>
 GOOGLE_MAPS_API_KEY=<Google Maps API key>
+```
+
+# Deploy the app
+
+In the Argo CD web interface create a new project with the following yaml:
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: apps-root
+spec:
+  destination:
+    namespace: argocd
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: k8s/apps
+    repoURL: 'git@github.com:tgamauf/spritstat-deployment.git'
+    targetRevision: test
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
 ```
 
 # Monitoring access
