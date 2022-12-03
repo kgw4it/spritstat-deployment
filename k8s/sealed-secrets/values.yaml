@@ -1,2 +1,2 @@
 sealed-secrets:
-  nameOverride: sealed-secrets
+  nameOverride: sealed-secrets-controller
