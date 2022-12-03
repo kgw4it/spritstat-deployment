@@ -41,6 +41,9 @@ kube-prometheus-stack:
               for: 30m
               annotations:
                 message: 'total spritstat error count ({{ $value }}).'
+    blackbox-exporter-alert:
+      groups:
+        - name: sp
   prometheus:
     prometheusSpec:
       additionalScrapeConfigs:
@@ -59,7 +62,6 @@ kube-prometheus-stack:
             - target_label: __address__
               replacement: blackbox-exporter-prometheus-blackbox-exporter.default:9115
   alertmanager:
-    enabled: true
     alertmanagerSpec:
       useExistingSecret: true
       configSecret: alertmanager-prometheus-stack-alertmanager
