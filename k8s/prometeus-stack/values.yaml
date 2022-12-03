@@ -43,6 +43,6 @@ kube-prometheus-stack:
                 message: 'total spritstat error count ({{ $value }}).'
   alertmanager:
     enabled: true
-    alertmanagerSpec:
-      useExistingSecret: true
-      configSecret: alertmanager-prometeus-stack-alertmanager
+#    alertmanagerSpec:
+#      useExistingSecret: true
+#      configSecret: alertmanager-prometeus-stack-alertmanager
