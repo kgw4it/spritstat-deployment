@@ -44,5 +44,5 @@ kube-prometheus-stack:
   alertmanager:
     enabled: true
     alertmanagerSpec:
-#      useExistingSecret: true
-#      configSecret: alertmanager-prometeus-stack-alertmanager
+      useExistingSecret: true
+      configSecret: alertmanager-prometeus-stack-alertmanager
