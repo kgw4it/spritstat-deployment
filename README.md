@@ -73,9 +73,7 @@ spec:
     targetRevision: test
   project: default
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+    automated: null
 ```
 
 After all services are deployed, install *kubeseal* on the jumpbox and retrieve the 
@@ -258,9 +256,7 @@ spec:
     targetRevision: test
   project: default
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+    automated: null
 ```
 
 # Monitoring access
