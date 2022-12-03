@@ -3,6 +3,10 @@ argo-cd:
     extraArgs:
       - "--disable-auth"
       - "--insecure"
+    config:
+      repositories: |
+        name: argo-cd
+        url: https://argoproj.github.io/argo-helm
   dex:
     enabled: false
   ingress:
