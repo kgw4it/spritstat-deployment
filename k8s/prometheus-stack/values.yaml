@@ -30,9 +30,9 @@ kube-prometheus-stack:
           datasource:
             - name: DS_LOKI
               value: Loki
-  nameOverride: prometeus-stack
-  additionalPrometheusRules:
-    - name: loki-alert
+  nameOverride: prometheus-stack
+  additionalPrometheusRulesMap:
+    spritstat-alert:
       groups:
         - name: spritstat
           rules:
@@ -41,8 +41,25 @@ kube-prometheus-stack:
               for: 30m
               annotations:
                 message: 'total spritstat error count ({{ $value }}).'
+  prometheus:
+    prometheusSpec:
+      additionalScrapeConfigs:
+        - job_name: 'blackbox-external-spritstat'
+          metrics_path: /probe
+          params:
+            module: [http_2xx]
+          static_configs:
+            - targets:
+              - https://sprit2.thga.at
+          relabel_configs:
+            - source_labels: [__address__]
+              target_label: __param_target
+            - source_labels: [__param_target]
+              target_label: instance
+            - target_label: __address__
+              replacement: prometheus-blackbox-prometheus-blackbox-exporter:9115
   alertmanager:
     enabled: true
     alertmanagerSpec:
       useExistingSecret: true
-      configSecret: alertmanager-prometeus-stack-alertmanager
+      configSecret: alertmanager-prometheus-stack-alertmanager

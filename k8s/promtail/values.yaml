@@ -21,4 +21,4 @@ promtail:
   serviceMonitor:
     enabled: true
     labels:
-      release: ps
+      release: prometheus-stack

@@ -1,6 +1,6 @@
 apiVersion: v2
-name: prometeus-stack
-description: Prometeus + Grafana for Kubernetes
+name: prometheus-stack
+description: Prometheus + Grafana
 type: application
 version: 0.1.0
 appVersion: "1.0"
