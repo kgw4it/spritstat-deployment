@@ -2,3 +2,5 @@ cert-manager:
   installCRDs: true
   startupapicheck:
     timeout: 5m
+  leaderElection:
+    namespace: "infrastructure"
