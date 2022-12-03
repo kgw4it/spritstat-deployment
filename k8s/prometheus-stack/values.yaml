@@ -39,19 +39,21 @@ kube-prometheus-stack:
             - alert: spritstat_errors
               expr: sum(increase(promtail_custom_spritstat_errors[15m])) > 2
               for: 30m
+              labels:
+                severity: "critical"
               annotations:
                 message: 'total spritstat error count ({{ $value }}).'
-#    blackbox-exporter-alert:
-#      groups:
-#        - name: spritstat
-#          rules:
-#            - alert: spritstat_not_reachable
-#              expr: probe_success == 0
-#              for: 10s
-#              labels:
-#                severity: "critical"
-#              annotations:
-#                message: 'spritstat not reachable ({{ labels.instance }}).'
+    blackbox-exporter-alert:
+      groups:
+        - name: spritstat
+          rules:
+            - alert: spritstat_not_reachable
+              expr: probe_success == 0
+              for: 10s
+              labels:
+                severity: "critical"
+              annotations:
+                message: 'spritstat not reachable ({{ $labels.instance }}).'
   prometheus:
     prometheusSpec:
       additionalScrapeConfigs:
