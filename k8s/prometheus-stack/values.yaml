@@ -31,8 +31,10 @@ kube-prometheus-stack:
             - name: DS_LOKI
               value: Loki
   nameOverride: prometheus-stack
-  additionalPrometheusRulesMap:
-    spritstat-alert:
+#  additionalPrometheusRulesMap:
+#    spritstat-alert:
+  additionalPrometheusRules:
+    - name: loki-alert
       groups:
         - name: spritstat
           rules:
