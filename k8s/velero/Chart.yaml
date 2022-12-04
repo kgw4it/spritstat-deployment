@@ -1,0 +1,11 @@
+apiVersion: v2
+name: velero
+description: Backup solution for Kubernetes
+type: application
+version: 0.1.0
+appVersion: "1.0"
+
+dependencies:
+- name: velero
+  version: 1.9.4
+  repository: https://vmware-tanzu.github.io/helm-charts
